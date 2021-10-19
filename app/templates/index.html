@@ -2,6 +2,10 @@
 
 {% block content %}
 
-<h1>Hey {{ name }}</h1>
+{% if current_user.is_authenticated %}
+    <h1>Hello {{ current_user.username }}!</h1>
+{% else %}
+    <h1>Welcome and please register using the link above!</h1>
+{% endif %}
 
 {% endblock content %}
